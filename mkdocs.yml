@@ -1,0 +1,10 @@
+site_name: Freifunk Dokumentation
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
