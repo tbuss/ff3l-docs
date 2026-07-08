@@ -129,9 +129,10 @@ scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
 ```
 Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
 
-!!! Tip
+!!! tip "Host Key Problem"
 
-    *Hinweis:* Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` gelöscht werden (oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden).
+    Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` entfernt werden.
+    Oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden.
 
 
 An der SSH-Sitzung auf dem Router:
