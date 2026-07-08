@@ -1,9 +1,5 @@
 # Edgerouter ERX Update
-
 ---
-
-
-
 
 
 ## Problem
@@ -68,7 +64,7 @@ Von eurem Rechner mit SSH-Zugang in einem Terminal z.B. so:
 
 ```sh
 scp -O root@[fdc7:3c9d:ff31:5:EURE:IPV6:ADDR:ESSE]:/tmp/backup.uci /tmp/backup.uci
-root@fdc7:3c9d:ff31:5:ae8b:a9ff:febd:302a's password: 
+root@fdc7:3c9d:ff31:5:eure:ipv6:addr:esse's password: 
 backup.uci                                                                          100%   20KB   1.5MB/s   00:00 
 
 ```
@@ -133,7 +129,9 @@ scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
 ```
 Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
 
-*Hinweis:* Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` gelöscht werden (oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden).
+!!! Tip
+
+    *Hinweis:* Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` gelöscht werden (oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden).
 
 
 An der SSH-Sitzung auf dem Router:

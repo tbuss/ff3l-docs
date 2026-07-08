@@ -1,11 +1,27 @@
-site_name: Freifunk Dokumentation
+site_name: FF3L Docu
+site_description: Dokumentation für Freifunk Dreiländereck
 site_url: https://tbuss.github.io/ff3l-docs/
+repo_url: https://github.com/tbuss/ff3l-docs/
+repo_name: ff3l-docs
 
 theme:
   name: material
+
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+
   features:
     - navigation.tabs
     - navigation.instant
     - search.suggest
     - search.highlight
     - content.code.copy
+
+  plugins:
+    - search
