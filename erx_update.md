@@ -112,19 +112,8 @@ Also: LAN-Kabel in eth1 und eine IP im Bereich 192.168.1.0/24 (z.B. 192.168.1.10
 Im Browser solltet ihr unter http://192.168.1.1 die Konfiguration sehen.
 - Hier solltet ihr den Remotezugriff wieder einstellen (Entweder Passwort setzen oder einen SSH-Key)
 
-- Dann die gesamte Config oder nur den Key wiederherstellen:
 
-    Am lokalen Rechner  im Terminal:
-
-    ```sh
-    scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
-    ```
-    Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
-
-    *Hinweis:* Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` gelöscht werden (oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden).
-
-
-## Übernehmen der gesicherten config
+## Wiederherstellen der Config/des Keys
 
 Wir stellen nur den Key - oder eben die ganze Config wieder her.
 
@@ -132,9 +121,20 @@ Wir stellen nur den Key - oder eben die ganze Config wieder her.
 
 ```sh
 uci set fastd.mesh_vpn.secret='HIER_STEHT_EUER_64_ZEICHEN_KEY'
+uci commit fastd
 ```
 
 ### 2. Die komplette Config wiederherstellen
+
+Am lokalen Rechner im Terminal:
+
+```sh
+scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
+```
+Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
+
+*Hinweis:* Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` gelöscht werden (oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden).
+
 
 An der SSH-Sitzung auf dem Router:
 
@@ -143,23 +143,25 @@ cd /tmp
 cat backup.uci | uci import
 ```
 
-Wichtig: 
-Hier muss das neue Flash-Layout überschrieben werden, da der router sonst denkt, er sei nicht migriert.
+Auf der Configurationsseite (im Browser) kann die Config überprüft werden. Knotenposition/Hostname usw. sollten wieder stimmen.
+
+
+**Wichtig:**
+Hier muss noch die Version des neuen Flash-Layouts überschrieben werden, da der router sonst denkt, er sei nicht migriert. 
+(Das haben wir mit dem Import auf den alten Wert gesetzt)
 
 ```sh
 uci set system.@system[0].compat_version=2.0
 uci commit
 ```
 
-Auf der Configurationsseite kann die Konfig überprüft werden. Knotenposition/Hostname usw. sollten wieder stimmen.
-
 
 ### Neustarten
 
 Mit ```reboot``` oder über die Weboberfläche kann rebootet werden. LAN-Kabel wieder umstecken, der Router sollte funktionieren wie vorher.
 
-## Überprüfung
 
+## Überprüfung (optional)
 
 Das Kommando ```gluon-info``` sagt euch die Firmware-Version:
 ```sh
