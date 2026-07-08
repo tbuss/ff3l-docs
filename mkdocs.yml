@@ -1,4 +1,5 @@
 site_name: Freifunk Dokumentation
+site_url: https://tbuss.github.io/ff3l-docs/
 
 theme:
   name: material
