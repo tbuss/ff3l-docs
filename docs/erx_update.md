@@ -42,7 +42,7 @@ mtd5: 0f7c0000 00020000 "ubi"
 ## Sicherung der Einstellungen
 Wir sichern den Key (1) oder die gesamte Config (2) für die spätere Wiederherstellung.
 
-=== 1. Nur den Key 
+=== "1. Nur den Key"
 
     Den privaten Key sichern mit `uci show | grep secret`. Die folgende Zeile ist dabei wichtig:
 
@@ -51,7 +51,7 @@ Wir sichern den Key (1) oder die gesamte Config (2) für die spätere Wiederhers
     ```
     Kopiert euch diesen Key für später irgendwo hin.
 
-=== 2. Die komplette Config 
+=== "2. Die komplette Config"
 
     Einfach alles sichern. Zuerst einen Export auf dem Router machen:
 
@@ -115,7 +115,7 @@ Im Browser solltet ihr unter http://192.168.1.1 die Konfiguration sehen.
 
 Wir stellen den Key (1) - oder eben die ganze Config (2) wieder her. Wählt den gleichen Weg wie vorhin.
 
-=== 1. Nur den Key 
+=== "1. Nur den Key"
 
     Der zuvor kopierte Key wird per uci gesetzt:
 
@@ -125,7 +125,7 @@ Wir stellen den Key (1) - oder eben die ganze Config (2) wieder her. Wählt den 
         ```
     Das wars.
 
-=== 2. Die komplette Config
+=== "2. Die komplette Config"
 
     Am lokalen Rechner im Terminal:
 
