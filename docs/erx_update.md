@@ -1,4 +1,4 @@
-# Edgerouter ERX Update
+# Edgerouter ER-X / ER-X SFP Migration
 ---
 
 
@@ -39,36 +39,38 @@ mtd5: 0f7c0000 00020000 "ubi"
 
 ---
 
-## Sicherung der config
+## Sicherung der Einstellungen
 Wir sichern den Key (1) oder die gesamte Config (2) für die spätere Wiederherstellung.
 
-### 1. Nur den Key sichern
-Den privaten Key sichern mit `uci show | grep secret`
+=== 1. Nur den Key 
 
-```sh
-fastd.mesh_vpn.secret='HIER_STEHT_EUER_64_ZEICHEN_KEY'
-```
-Kopiert euch diesen Key für später irgendwo hin.
+    Den privaten Key sichern mit `uci show | grep secret`. Die folgende Zeile ist dabei wichtig:
 
-### 2. Die komplette Config sichern
-Einfach alles sichern mit. Zuerst einen Export auf dem Router machen:
+    ```sh
+    fastd.mesh_vpn.secret='HIER_STEHT_EUER_64_ZEICHEN_KEY'
+    ```
+    Kopiert euch diesen Key für später irgendwo hin.
 
-```sh
-cd /tmp
-uci export > backup.uci
-```
+=== 2. Die komplette Config 
 
-Dann die Datei "backup.uci" auf euren Rechner, die geht beim nächsten Schritt (Migration) verloren!
+    Einfach alles sichern. Zuerst einen Export auf dem Router machen:
 
-Von eurem Rechner mit SSH-Zugang in einem Terminal z.B. so:
+    ```sh
+    cd /tmp
+    uci export > backup.uci
+    ```
 
-```sh
-scp -O root@[fdc7:3c9d:ff31:5:EURE:IPV6:ADDR:ESSE]:/tmp/backup.uci /tmp/backup.uci
-root@fdc7:3c9d:ff31:5:eure:ipv6:addr:esse's password: 
-backup.uci                                                                          100%   20KB   1.5MB/s   00:00 
+    Dann die Datei "backup.uci" auf euren Rechner, die geht beim nächsten Schritt (Migration) verloren!
 
-```
-Das kopiert die Remote erstellte Datei in euer lokales /tmp Verzeichnis.
+    Von eurem Rechner mit SSH-Zugang in einem Terminal z.B. so:
+
+    ```sh
+    scp -O root@[fdc7:3c9d:ff31:5:EURE:IPV6:ADDR:ESSE]:/tmp/backup.uci /tmp/backup.uci
+    root@fdc7:3c9d:ff31:5:eure:ipv6:addr:esse's password: 
+    backup.uci                                                                          100%   20KB   1.5MB/s   00:00 
+
+    ```
+    Das kopiert die Remote erstellte Datei in euer lokales /tmp Verzeichnis.
 
 
 ## Die Migration ausführen
@@ -111,53 +113,56 @@ Im Browser solltet ihr unter http://192.168.1.1 die Konfiguration sehen.
 
 ## Wiederherstellen der Config/des Keys
 
-Wir stellen nur den Key - oder eben die ganze Config wieder her.
+Wir stellen den Key (1) - oder eben die ganze Config (2) wieder her. Wählt den gleichen Weg wie vorhin.
 
-### 1. Nur den Key setzen
+=== 1. Nur den Key 
 
-```sh
-uci set fastd.mesh_vpn.secret='HIER_STEHT_EUER_64_ZEICHEN_KEY'
-uci commit fastd
-```
+    Der zuvor kopierte Key wird per uci gesetzt:
 
-### 2. Die komplette Config wiederherstellen
+        ```sh
+        uci set fastd.mesh_vpn.secret='HIER_STEHT_EUER_64_ZEICHEN_KEY'
+        uci commit fastd
+        ```
+    Das wars.
 
-Am lokalen Rechner im Terminal:
+=== 2. Die komplette Config
 
-```sh
-scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
-```
-Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
+    Am lokalen Rechner im Terminal:
 
-!!! tip "Host Key Problem"
+    ```sh
+    scp -O /tmp/backup.uci root@192.168.1.1:/tmp/backup.uci
+    ```
+    Das kopiert die lokale (vorher kopierte) Datei auf eurem Router im /tmp Verzeichnis.
 
-    Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` entfernt werden.
-    Oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden.
+    !!! tip "Host Key Problem"
 
-
-An der SSH-Sitzung auf dem Router:
-
-```sh
-cd /tmp
-cat backup.uci | uci import
-```
-
-Auf der Configurationsseite (im Browser) kann die Config überprüft werden. Knotenposition/Hostname usw. sollten wieder stimmen.
+        Wenn es Probleme mit dem Host key gibt, dann kann dieser mit ```ssh-keygen -R 192.168.1.1``` entfernt werden.
+        Oder manuell aus der Datei ~/.ssh/known_hosts gelöscht werden.
 
 
-**Wichtig:**
-Hier muss noch die Version des neuen Flash-Layouts überschrieben werden, da der router sonst denkt, er sei nicht migriert. 
-(Das haben wir mit dem Import auf den alten Wert gesetzt)
+    An der SSH-Sitzung auf dem Router:
 
-```sh
-uci set system.@system[0].compat_version=2.0
-uci commit
-```
+    ```sh
+    cd /tmp
+    cat backup.uci | uci import
+    ```
+
+    Auf der Configurationsseite (im Browser) kann die Config überprüft werden. Knotenposition/Hostname usw. sollten wieder stimmen.
+
+
+    **Wichtig:**
+    Hier muss noch die Version des neuen Flash-Layouts überschrieben werden, da der router sonst denkt, er sei nicht migriert. 
+    (Das haben wir mit dem Import auf den alten Wert gesetzt)
+
+    ```sh
+    uci set system.@system[0].compat_version=2.0
+    uci commit
+    ```
 
 
 ### Neustarten
 
-Mit ```reboot``` oder über die Weboberfläche kann rebootet werden. LAN-Kabel wieder umstecken, der Router sollte funktionieren wie vorher.
+Mit ```reboot``` (oder über die Weboberfläche) muss der Router jetzt rebootet. Das LAN-Kabel wieder umstecken wie vor der Migration, der Router sollte danach funktionieren wie vorher.
 
 
 ## Überprüfung (optional)
