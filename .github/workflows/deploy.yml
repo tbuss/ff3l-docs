@@ -50,5 +50,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - run: mkdocs gh-deploy --force
