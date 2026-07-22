@@ -24,9 +24,9 @@ theme:
     - content.code.copy
     - content.tabs.link
 
-  plugins:
-    - search
-    - slides
+plugins:
+  - search
+  - slides
 
 
 markdown_extensions:
