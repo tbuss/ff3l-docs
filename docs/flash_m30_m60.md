@@ -1,4 +1,4 @@
-# Aquila M30 und M60 für Freifunk flashen
+# Aquila M30 und M60 flashen
 ---
 
 ## Einleitung
