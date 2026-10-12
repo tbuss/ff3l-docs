@@ -38,8 +38,8 @@ _Ich weiß noch nicht wieso das so ist, werde aber versuchen es herauszufinden._
   
 3. **Sysupgrade Firmware** herunterladen. _(Von eurer Community)_
 
-      - Für den M30 bei FF3L z.B. diese Datei: [gluon-ff3l-v2025.1.1+002-d-link-aquila-pro-ai-m60-a1-sysupgrade.bin](https://freifunk-firmware.de/?q=D-Link%E2%81%A3%20Aquila%C2%A0Pro%C2%A0AI%C2%A0M30%E2%81%A3%20a1%E2%81%A3)
-      - Für den M60 bei FF3L z.B. diese Datei: [gluon-ff3l-v2025.1.1+002-d-link-aquila-pro-ai-m60-a1-sysupgrade.bin](https://freifunk-firmware.de/?q=D-Link%E2%81%A3%20Aquila%C2%A0Pro%C2%A0AI%C2%A0M60%E2%81%A3%20a1%E2%81%A3)
+      - Für den M30 bei FF3L z.B. diese Datei: [gluon-ff3l-v2025.1.1+002-d-link-aquila-pro-ai-m60-a1-sysupgrade.bin](https://freifunk-firmware.de/images-release/stable/sysupgrade/gluon-ff3l-v2025.1.1%2B002-d-link-aquila-pro-ai-m30-a1-sysupgrade.bin)
+      - Für den M60 bei FF3L z.B. diese Datei: [gluon-ff3l-v2025.1.1+002-d-link-aquila-pro-ai-m60-a1-sysupgrade.bin](https://freifunk-firmware.de/images-release/stable/sysupgrade/gluon-ff3l-v2025.1.1%2B002-d-link-aquila-pro-ai-m60-a1-sysupgrade.bin)
 
 4. Computer und Router über einen der weißen LAN-Ports mit einem LAN-Kabel verbinden
    
@@ -48,14 +48,14 @@ _Ich weiß noch nicht wieso das so ist, werde aber versuchen es herauszufinden._
 6. Mit einem spitzen Gegenstand wie einer Büroklammer oder einem Simkartentool den Resetknopf auf der Rückseite des M30/M60 drücken und gleichzeitig den M30/M60 anschalten/einstecken.
 Die Büroklammer ein paar Sekunden halten bis die Haupt-LED rot blinkt.
 
-1. Am PC den Browser öffnen und http://192.168.200.1/ eingeben
+1. Am PC den Browser öffnen und [http://192.168.200.1/](http://192.168.200.1/) eingeben
    Wenn sich ein ganz einfaches Recovery-Tool öffnet, stimmt alles.
 
 2. Hier jetzt die **OpenWrt Recovery** Firmware hochladen
 
-3.  Nach geglücktem Upload der Firmware müssen die Netzwerkeinstellungen aus Schritt 5. wieder rückgängig gemacht werden und auf automatisch bzw DHCP stehen damit folgende Schritte funktionieren.
+3.  Nach geglücktem Upload der Firmware müssen die Netzwerkeinstellungen aus Schritt 5. wieder rückgängig gemacht werden und auf automatisch bzw DHCP stehen damit folgende Schritte funktionieren. Der PC sollte nun eine IP im Netz 192.168.1.0/24 bekommen.
 
-4.    Das Gerät startet mit OpenWrt-Firmware. Am PC den Browser öffnen und http://192.168.1.1 eingeben.
+4.    Das Gerät startet mit OpenWrt-Firmware. Am PC den Browser öffnen und [http://192.168.1.1/](http://192.168.1.1/) eingeben.
  Hier kann nun per grafischem User Interface die **Sysupgrade Firmware** eurer Community auf dem Gerät installiert werden.
 
-1.    Nach dem Reboot kann der Router im Browser unter http://192.168.1.1 konhfiguriert werden. 
+1.    Nach dem Reboot kann der Router im Browser unter [http://192.168.1.1/](http://192.168.1.1/) konfiguriert werden. 
