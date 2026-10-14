@@ -27,6 +27,7 @@ theme:
 plugins:
   - search
   - slides
+  - revealjs
 
 
 markdown_extensions:
