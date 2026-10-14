@@ -36,6 +36,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Debug MkDocs plugins
+        run: |
+          python -m pip show mkdocs-revealjs
+          mkdocs --version
+          mkdocs config
+
       - name: Build
         run: mkdocs build
 
