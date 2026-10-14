@@ -39,6 +39,13 @@ jobs:
       - name: Build
         run: mkdocs build
 
+      - name: Debug RevealJS output
+        run: |
+          echo "=== Generated HTML ==="
+          grep -n -E 'class="reveal|class="slides|revealjs|reveal\.js' site/slides/index.html || true
+          echo "=== Generated files ==="
+          find site -iname '*reveal*'
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
