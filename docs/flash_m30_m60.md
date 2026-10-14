@@ -19,10 +19,12 @@ Die [Anleitung bei **Freifunk Aachen**](https://freifunk-aachen.de/2026/08/17/in
 
 Der Unterschied zu hier ist: Ich beschreibe M30 und M60 und gehe auf das Problem mit dem Gluon Recovery Image ein.
 
-### Problem mit dem Gluon Recovery Image (bei FF3L, FFMUC, FFRN, ...?)
-Ich habe mehrere Male versucht, das Recovery-Image von unserer Firmware-Seite zu verwenden, aber der Router war nach dem Reboot nie unter 192.168.1.1 ansprechbar. Auch hat er keine IP verteilt. Das habe ich mit dem M30 und dem M60 selbst getestet. 
+### Problem mit dem Gluon Recovery Image 
+Ich habe mehrere Male versucht, das Recovery-Image von unserer Firmware-Seite zu verwenden, aber der Router war nach dem Reboot nie unter 192.168.1.1 ansprechbar. Auch hat er keine IP verteilt. 
 
-Es gibt einen (bekannten Bug)[https://github.com/freifunk-gluon/gluon/pull/3816] dazu.
+Das habe ich mit dem M30 und dem M60 selbst getestet. 
+
+Es gibt einen [bekannten Bug](https://github.com/freifunk-gluon/gluon/pull/3816) dazu.
 
 
 ## Flashen
