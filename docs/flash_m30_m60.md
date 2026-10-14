@@ -17,14 +17,12 @@ Die Firmware für beide Geräte ist bei FF3L jeweils hier zu finden:
 
 Die [Anleitung bei **Freifunk Aachen**](https://freifunk-aachen.de/2026/08/17/installationsanleitung-d-link-m30/) erklärt es bereits ganz gut. 
 
-Der Unterschied zu hier ist: Ich beschreibe M30 und M60 und gehe auf das Problem mit dem Recovery Image bei FF3L ein.
+Der Unterschied zu hier ist: Ich beschreibe M30 und M60 und gehe auf das Problem mit dem Gluon Recovery Image ein.
 
-### Problem mit unserem Recovery Image (FF3L)
-Ich habe mehrere Male versucht, das Recovery-Image von unserer Firmware-Seite zu verwenden, aber der Router war nach dem Reboot nie unter 192.168.1.1 ansprechbar. Auch hat er keine IP verteilt. Das habe ich mit dem M30 und dem M60 selbst getestet.
+### Problem mit dem Gluon Recovery Image (bei FF3L, FFMUC, FFRN, ...?)
+Ich habe mehrere Male versucht, das Recovery-Image von unserer Firmware-Seite zu verwenden, aber der Router war nach dem Reboot nie unter 192.168.1.1 ansprechbar. Auch hat er keine IP verteilt. Das habe ich mit dem M30 und dem M60 selbst getestet. 
 
-Versuchsweise habe ich das Recovery direkt von Gluon verwendet - das hat dann sofort funktioniert.
-
-_Ich weiß noch nicht wieso das so ist, werde aber versuchen es herauszufinden._
+Es gibt einen (bekannten Bug)[https://github.com/freifunk-gluon/gluon/pull/3816] dazu.
 
 
 ## Flashen
