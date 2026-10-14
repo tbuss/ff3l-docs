@@ -26,9 +26,8 @@ theme:
 
 plugins:
   - search
-  #- revealjs
-  - slides
   - revealjs
+  #- slides
 
 
 # nav:
