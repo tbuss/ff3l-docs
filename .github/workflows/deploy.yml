@@ -40,7 +40,6 @@ jobs:
         run: |
           python -m pip show mkdocs-revealjs
           mkdocs --version
-          mkdocs config
 
       - name: Build
         run: mkdocs build
