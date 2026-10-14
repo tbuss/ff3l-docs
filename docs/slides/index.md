@@ -1,9 +1,10 @@
 ---
 revealjs:
   presentation: true
+  slideNumber: 'c/t'
 ---
 
-# Meine erste Präsentation
+# Demo/Test
 
 ---
 
@@ -26,7 +27,7 @@ for i in range(5):
 
 # Bild
 
-![Logo](https://upload.wikimedia.org/wikipedia/commons/3/38/Markdown-mark.svg)
+![Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
 
 ---
 
