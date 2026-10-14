@@ -26,9 +26,17 @@ theme:
 
 plugins:
   - search
+  #- revealjs
   - slides
   - revealjs
 
+
+# nav:
+#   - Start: index.md
+#   - Dokumentation:
+#     - ERX: erx_update.md
+#   - Präsentation: 
+#     - Slides: index.md
 
 markdown_extensions:
   - admonition

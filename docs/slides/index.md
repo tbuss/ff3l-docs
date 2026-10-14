@@ -1,3 +1,8 @@
+---
+revealjs:
+  presentation: true
+---
+
 # Meine erste Präsentation
 
 ---
